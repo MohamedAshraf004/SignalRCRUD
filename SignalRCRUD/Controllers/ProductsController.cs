@@ -30,9 +30,9 @@ namespace SignalRCRUD.Controllers
             return Ok( _context.Products.ToList());
         }
         // GET: Products
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return View(await _context.Products.ToListAsync());
+            return View();
         }
 
         // GET: Products/Details/5
