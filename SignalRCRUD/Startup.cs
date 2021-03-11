@@ -13,6 +13,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SignalRCRUD.Models;
+using AspNetCoreHero.ToastNotification;
+using AspNetCoreHero.ToastNotification.Extensions;
 
 namespace SignalRCRUD
 {
@@ -41,6 +43,7 @@ namespace SignalRCRUD
             {
                 options.JsonSerializerOptions.PropertyNamingPolicy = null;
             });
+            services.AddNotyf(config => { config.DurationInSeconds = 10; config.IsDismissable = true; config.Position = NotyfPosition.BottomRight; });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,7 +63,7 @@ namespace SignalRCRUD
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseNotyf(); // fort ajax and partial views to work
             app.UseRouting();
 
             app.UseAuthentication(); 

@@ -6,9 +6,7 @@
 
 <h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+
 @*<table class="table">
     <thead>
         <tr>
@@ -52,3 +50,26 @@
     </tbody>
 </table>*@
 
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               ProductName
+            </th>
+            <th>
+                Category
+            </th>
+            <th>
+               UnitPrice
+            </th>
+            <th>
+                StockQty
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+</table>
